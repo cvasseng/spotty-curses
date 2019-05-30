@@ -12,6 +12,7 @@
 
 const config = require('./lib/config');
 const spotify = require('./lib/spotify-api');
+const command = require('./lib/commands');
 
 config()
   .then(() =>
@@ -23,7 +24,6 @@ config()
 
       // Start the UI
       const ui = require('./lib/ui');
-      // Reload the playlist sidebar
       ui.playlistSidebar.reloadFromSpotify();
     })
   )
