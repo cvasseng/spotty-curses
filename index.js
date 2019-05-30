@@ -14,7 +14,7 @@ const config = require('./lib/config');
 const spotify = require('./lib/spotify-api');
 
 config()
-  .then(() => {
+  .then(() =>
     spotify.authenticate().then(() => {
       spotify.player
         .activateDevice()
@@ -25,13 +25,6 @@ config()
       const ui = require('./lib/ui');
       // Reload the playlist sidebar
       ui.playlistSidebar.reloadFromSpotify();
-
-      return;
-
-      return spotify.playlists
-        .getUserPlaylists()
-        .then(data => console.log(JSON.stringify(data.items, 0, '  ')))
-        .catch(e => console.log(e));
-    });
-  })
+    })
+  )
   .catch(e => console.error(e));
