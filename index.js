@@ -17,10 +17,11 @@ const command = require('./lib/commands');
 config()
   .then(() =>
     spotify.authenticate().then(() => {
-      spotify.player
-        .activateDevice()
-        .then(data => console.log(data))
-        .catch(e => console.log(e));
+
+      // spotify.player
+      //   .activateDevice(false, false)
+      //   .then(data => console.log(data))
+      //   .catch(e => console.log(e));
 
       // Start the UI
       const ui = require('./lib/ui');
